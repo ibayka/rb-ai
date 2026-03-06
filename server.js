@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config";
 import Groq from "groq-sdk";
 import session from "express-session";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
