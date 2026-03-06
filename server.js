@@ -1,3 +1,6 @@
+import mongoose from "mongoose";
+mongoose.connect(process.env.MONGO_URİ);
+console.log("MongoDB")
 import express from "express";
 import "dotenv/config";
 import Groq from "groq-sdk";
@@ -171,3 +174,9 @@ app.post("/chat", async (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log(`R💞B çalışıyor: ${process.env.PORT || 3000}`);
 });
+const UserSchema = new mongoose.Schema({
+  username: String,
+  pasword: String
+});
+
+Const User = mongoose.model("User", UserSchema);
