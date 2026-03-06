@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R💞B</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">R💞B</div>
+      <button id="newChatBtn" class="sidebar-btn">+ Yeni Sohbet</button>
+      <button id="logoutBtn" class="sidebar-btn logout-btn">Çıkış Yap</button>
+      <div class="sidebar-info">
+        <p>Yapay zekâ asistanın</p>
+        <p id="userInfo"></p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>R💞B</h1>
+          <p>Modern yapay zekâ sohbet ekranı</p>
+        </div>
+      </header>
+
+      <section id="chat" class="chat"></section>
+
+      <div id="typing" class="typing hidden">R💞B yazıyor...</div>
+
+      <section class="composer">
+        <label class="upload-btn">
+          📽️
+          <input type="file" id="imageInput" accept="image/*" hidden />
+        </label>
+
+        <input
+          id="msg"
+          type="text"
+          placeholder="R💞B ile konuş..."
+          autocomplete="off"
+        />
+
+        <button id="sendBtn">Gönder</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
