@@ -4,11 +4,16 @@ import Groq from "groq-sdk";
 import session from "express-session";
 import bcrypt from "bcrypt";
 import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
@@ -36,6 +41,10 @@ function readUsers() {
 function writeUsers(users) {
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 }
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.get("/health", (_req, res) => {
   res.json({ ok: true, name: "R💞B" });
@@ -160,5 +169,5 @@ app.post("/chat", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`R💞B çalışıyor: http://localhost:${process.env.PORT || 3000}`);
+  console.log(`R💞B çalışıyor: ${process.env.PORT || 3000}`);
 });
